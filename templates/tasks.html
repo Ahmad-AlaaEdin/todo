@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+
+
+{% block title %}
+todo
+{% endblock %}
+{% block main %}
+<form action="/add" method="post">
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Task" name="task"autocomplete="off" required>
+        <button class="btn btn-danger" type="submit">Add Task</button>
+      </div>
+</form>
+{% for task in tasks %}
+<div class="d-flex justify-content-between p-2 align-content-center">
+    <p class="mx-5 task">{{task.data}}</p>
+    <a href="/delete?id={{task.id}}"><button class="btn btn-danger"><i class="fa fa-remove" style="font-size:24px"></i></button></a>
+</div>
+
+{%endfor%}
+{% endblock %}
